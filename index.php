@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 }
 
 foreach ($rawParametersList as $key => $item) {
-    $rawParametersList[$key] = htmlspecialchars($item, ENT_QUOTES, $charset, false);
+    $rawParametersList[$key] = htmlspecialchars($item, ENT_QUOTES, $charset);
 }
 
 $parametersList = array_intersect_key($rawParametersList, $userFieldsList);
@@ -327,7 +327,7 @@ if (($status) && ($searchValue != null)) {
             if (count($recordsEmailsList) > 1) {
                 $recordsEmails = implode(", ", $recordsEmailsList);
                 if ($groupMailtoShortcutTooltipDisplay) {
-                    $groupMailtoShortcutTooltip = htmlspecialchars(sprintf($mailtoButtonLabel, $recordsEmails), ENT_QUOTES, $charset, false);
+                    $groupMailtoShortcutTooltip = htmlspecialchars(sprintf($mailtoButtonLabel, $recordsEmails), ENT_QUOTES, $charset);
                 }
                 $linkUrl = "mailto:" . rawurlencode($recordsEmails);
                 $records .= generateItem($recordsToolbarTemplate, generateImageTag($mailtoImageFilename, $groupMailtoShortcutTooltip, $linkUrl));

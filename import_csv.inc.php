@@ -45,7 +45,7 @@ function parseFile($filepath, $fieldsList, $charset)
         if ($dataCount == $headerCount) {
             $recordData = array();
             foreach ($header as $item) {
-                $convertedValue = htmlspecialchars(array_shift($data), ENT_QUOTES, $charset, false);
+                $convertedValue = htmlspecialchars(array_shift($data), ENT_QUOTES, $charset);
                 array_push($recordData, array("name" => $item, "value" => $convertedValue));
             }
         } else {
